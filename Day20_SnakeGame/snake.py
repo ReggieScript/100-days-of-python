@@ -47,3 +47,10 @@ class Snake(object):
     def right(self):
         if self.segments[0].heading() != 180:
             self.segments[0].setheading(0)
+
+    def reset(self):
+        for segment in self.segments:
+            segment.hideturtle()
+        self.segments.clear()
+        self.create_snake()
+        self.head=self.segments[0]
