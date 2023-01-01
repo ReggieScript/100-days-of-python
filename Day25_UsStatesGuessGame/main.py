@@ -41,7 +41,7 @@ game_mode = screen.textinput(title="Choose your gamemode",
 if game_mode == 'new':
     states = states_complete
 elif game_mode== 'savefile':
-    states = pandas.read_csv(r'Day25_UsStatesGuessGame\MissingStates')
+    states = pandas.read_csv(r'Day25_UsStatesGuessGame\states_to_learn.csv')
     correct_states = pandas.read_csv(r"Day25_UsStatesGuessGame\CorrectStates.csv")
     for item in correct_states["state"]:
         xcord = states_complete.loc[(
@@ -51,12 +51,13 @@ elif game_mode== 'savefile':
         write_states(item, xcord, ycord)
 
 
-correct_states = []
+guessed_state = []
 
 game_is_on = True
 while game_is_on:
     answer_state = screen.textinput(
         title="Guess the state:", prompt="Name a state")
+    guessed_state.append(answer_state)
     if states["state"].str.contains(answer_state).any():
 
         correct_states.append(answer_state)
@@ -69,19 +70,11 @@ while game_is_on:
         write_states(answer_state, xcord, ycord)
 
     if answer_state == 'exit':
-        game_is_on = False
-
-missing_states = states
-
-print(correct_states)
-
-correct_states= missing_states[missing_states.state.isin(
-    correct_states) == True]
-missing_states = missing_states[missing_states.state.isin(
-    correct_states) == False]
-
+        missing_states= [state for state in states_complete.states.tolist() if state not in guessed_state]
+        new_data=pandas.DataFrame(missing_states)
+        new_data.to_csv("states_to_learn.csv")
+        break
 
 correct_states.to_csv("Day25_UsStatesGuessGame\CorrectStates.csv")
-missing_states.to_csv("Day25_UsStatesGuessGame\MissingStates.csv")
 
 turtle.mainloop()
