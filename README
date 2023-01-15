@@ -1,0 +1,8 @@
+Hey!
+I thought of doing this README to keep track of projects and
+notes for each one of them.
+
+Day 28- Pomodoro Timer
+Building the GUI in tkinter was HARD. I feel like I can still 
+optimize the code and improve the readability. 
+Issue: the restart button wont work. I'll try to check the after_cancel()method.
