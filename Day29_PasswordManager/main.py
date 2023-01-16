@@ -8,7 +8,7 @@ import tkinter as tk
 # Creating the window
 
 window = tk.Tk()
-window.title("MyPass")
+window.title("MyPass") 
 window.minsize(height=400, width=400)
 window.config(padx=20, pady=20)
 

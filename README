@@ -6,3 +6,4 @@ Day 28- Pomodoro Timer
 Building the GUI in tkinter was HARD. I feel like I can still 
 optimize the code and improve the readability. 
 Issue: the restart button wont work. I'll try to check the after_cancel()method.
+Update: I didn't declare the variable as global so that's why it didn't work!
