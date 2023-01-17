@@ -1,10 +1,19 @@
 import tkinter as tk
+import random
+import pyperclip
+
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
-
-
+def generate_password():
+    password_entry.delete(0,"end")
+    rand_password = ''.join([random.choice(random.choice([letters,numbers,symbols])) for i in range(10)])
+    pyperclip.copy(rand_password)
+    password_entry.insert(0,rand_password)
+    
 # ---------------------------- SAVE PASSWORD ------------------------------- #
-
 
 def save():
     """Saves wb(website), user(username/email) and pwd(password) into a txt file """
@@ -67,7 +76,7 @@ password_entry.grid(column=2, row=3, sticky="W", pady=2)
 
 # Buttons
 
-pw_button = tk.Button(text="Generate Password")
+pw_button = tk.Button(text="Generate Password",command=generate_password)
 pw_button.grid(column=3, row=3, sticky="W", pady=2)
 
 add_button = tk.Button(text="Add Password", width=36, command=save)
