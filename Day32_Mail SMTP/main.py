@@ -1,17 +1,40 @@
 import smtplib
 import datetime as dt
+import pandas
+import random
 
-# test_email=""
-# pwd_email=""
-# real_email=""
+templates = ["Day32_Mail SMTP\letter_templates\letter_1.txt",
+             "Day32_Mail SMTP\letter_templates\letter_2.txt", "Day32_Mail SMTP\letter_templates\letter_3.txt"]
+test_email = "" #Fill this with your email
+pwd_email = "" #Email password
 
-# with smtplib.SMTP("smtp.gmail.com",port=587) as connection:
-#     connection.starttls()
-#     connection.login(user=test_email,password=pwd_email)
+def send(letter, mail):
+    with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+        connection.starttls()
+        connection.login(user=test_email, password=pwd_email)
+        connection.sendmail(from_addr=test_email, to_addrs=mail,
+                            msg=letter)
+        connection.close()
 
-#     connection.sendmail(from_addr=test_email, to_addrs=real_email, msg="Subject: Hola amorcito\n\nMira lo logre!!! in yo face!!")
 
-#     connection.close()
+def bday_letter(name):
+    with open(random.choice(templates), "r") as file:
+        letter = file.read()
+        letter = letter.replace("[NAME]", name)
+        return letter
 
-now=dt.datetime.now()
-now.year
+
+birthdays = pandas.read_csv(
+    r"Day32_Mail SMTP\birthdays.csv").to_dict(orient='index')
+now = dt.datetime.now()
+
+print(birthdays)
+
+for key in birthdays:
+    bday_name = birthdays[key]['name']
+    bday_email = birthdays[key]['email']
+    bday_month = birthdays[key]['month']
+    bday_day = birthdays[key]['day']
+    if bday_day == now.day and bday_month == now.month:
+        new_letter = bday_letter(bday_name)
+        send(new_letter,bday_email)
