@@ -25,6 +25,7 @@ parameters = {
     "formatted": 0,
 }
 
+
 response = requests.get(url = "https://api.sunrisesunset.io/json?", params = parameters)
 response.raise_for_status()
 data = response.json()
