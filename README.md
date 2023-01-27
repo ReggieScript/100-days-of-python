@@ -24,3 +24,6 @@ Anyway, to use it for your convenience, i had some variables to fill in with you
 `list_mails = () #fill with a list of emails you would like to send to the notifications`
 `test_email = "" #Fill this with your email from which you will send the notifications`
 `pwd_email = "" #Email password`
+
+## Day 34 - Quizzler App (26/01/23)
+Apis are awesome. Try the game for yourself!
