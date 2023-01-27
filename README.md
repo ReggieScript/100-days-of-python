@@ -27,3 +27,7 @@ Anyway, to use it for your convenience, i had some variables to fill in with you
 
 ## Day 34 - Quizzler App (26/01/23)
 Apis are awesome. Try the game for yourself!
+
+# Notes
+
+* Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
