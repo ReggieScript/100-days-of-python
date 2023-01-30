@@ -28,6 +28,9 @@ Anyway, to use it for your convenience, i had some variables to fill in with you
 ## Day 34 - Quizzler App (26/01/23)
 Apis are awesome. Try the game for yourself!
 
+## Day 36 - Stock tracker
+Trys are exceptional. Truly a life saver. A probable bug could arise in the event of no news related to the stock! Should check it out.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
