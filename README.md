@@ -34,6 +34,9 @@ Trys are exceptional. Truly a life saver. A probable bug could arise in the even
 ## Day 37 - Habit Tracker Api (31/01/23)
 Today I kept learning about apis, but most importantly, that you can format the date in the datetime module. Time saver.
 
+## Day 39 - Workout tracker (06/02/23)
+Remember sheety api, great resource.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
