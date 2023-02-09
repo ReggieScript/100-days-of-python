@@ -34,8 +34,11 @@ Trys are exceptional. Truly a life saver. A probable bug could arise in the even
 ## Day 37 - Habit Tracker Api (31/01/23)
 Today I kept learning about apis, but most importantly, that you can format the date in the datetime module. Time saver.
 
-## Day 39 - Workout tracker (06/02/23)
+## Day 38 - Workout tracker (06/02/23)
 Remember sheety api, great resource.
+
+## Day 39 - Flight Tracker (09/02/23)
+Im going to leave this project on standby. It needs a Flight price tracker api, and the one recommended by the course (kiwi/tequila) wont work for me. If I find another api to replace this I will jump back to the project.
 
 # Notes
 
