@@ -37,8 +37,14 @@ Today I kept learning about apis, but most importantly, that you can format the 
 ## Day 38 - Workout tracker (06/02/23)
 Remember sheety api, great resource.
 
-## Day 39 - Flight Tracker (09/02/23)
+## Day 39 - 40 - Flight Tracker (09/02/23)
 Im going to leave this project on standby. It needs a Flight price tracker api, and the one recommended by the course (kiwi/tequila) wont work for me. If I find another api to replace this I will jump back to the project.
+
+## Day 41 - 43 - HTML and CSS
+I jumped over these lessons because I already worked on them on the Web dev bootcamp :)
+
+## Day 44 - 100 Movies web scraping (09/02/22)
+Web scraping is a very useful tool, this was a good exercise to remind myself how to obatin data from html using beautifulsoup(Aka. the GOAT)
 
 # Notes
 
