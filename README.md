@@ -43,8 +43,11 @@ Im going to leave this project on standby. It needs a Flight price tracker api, 
 ## Day 41 - 43 - HTML and CSS
 I jumped over these lessons because I already worked on them on the Web dev bootcamp :)
 
-## Day 44 - 100 Movies web scraping (09/02/22)
+## Day 44 - 100 Movies web scraping (09/02/23)
 Web scraping is a very useful tool, this was a good exercise to remind myself how to obatin data from html using beautifulsoup(Aka. the GOAT)
+
+## Day 45 - Spotify Time Machine (13/02/23)
+I lost a lot of time during authentication. It was easily the worst part of this project. Note to self, check the documentation and redirect urls!
 
 # Notes
 
