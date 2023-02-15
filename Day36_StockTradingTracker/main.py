@@ -49,9 +49,9 @@ stock_per = percentage(difference)
 letter = f"Subject: {stock_name} Stock Update!\n\n{symbol} {behaviour} {round(stock_per)}%\n\nHeadline:{title} \nBrief: {brief}\n\nLearn More: {url}"
 
 def send_mail():
-    with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+    with smtplib.SMTP("smtp.gmail.com", port = 587) as connection:
         connection.starttls()
-        connection.login(user=test_email, password=pwd_email)
+        connection.login(user = test_email, password = pwd_email)
         try:
             connection.sendmail(from_addr=test_email, to_addrs="regina.crespo.018@gmail.com",
                         msg=letter)

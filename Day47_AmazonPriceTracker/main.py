@@ -12,6 +12,8 @@ send_email = os.getenv("MAIL_SEND")
 recieve_email = os.getenv("MAIL_RECIEVE")
 password = os.getenv("PASSWORD")
 
+print(send_email, recieve_email, password)
+
 HEADERS = (
     {
         'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
@@ -36,11 +38,9 @@ name = soup.find("h1",id ="title")
 letter = f"Subject: Item in price range!\n\n The item {name} is on your requested price range at {price}. Go for it! {item_url}".encode("utf-8")
 
 def send_mail():
-    with smtplib.SMTP("smtp.gmail.com", port=25) as connection:
-        connection.ehlo()
+    with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         connection.starttls()
-        connection.ehlo()
-        connection.login(user=send_email, password=password)
+        result = connection.login(user=send_email, password=password)
         connection.sendmail(from_addr=send_email, to_addrs=recieve_email,msg=letter)
         connection.close()
 
