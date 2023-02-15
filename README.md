@@ -40,14 +40,17 @@ Remember sheety api, great resource.
 ## Day 39 - 40 - Flight Tracker (09/02/23)
 Im going to leave this project on standby. It needs a Flight price tracker api, and the one recommended by the course (kiwi/tequila) wont work for me. If I find another api to replace this I will jump back to the project.
 
-## Day 41 - 43 - HTML and CSS
+## Day 41 - 44 - HTML and CSS
 I jumped over these lessons because I already worked on them on the Web dev bootcamp :)
 
-## Day 44 - 100 Movies web scraping (09/02/23)
+## Day 45 - 100 Movies web scraping (09/02/23)
 Web scraping is a very useful tool, this was a good exercise to remind myself how to obatin data from html using beautifulsoup(Aka. the GOAT)
 
-## Day 45 - Spotify Time Machine (13/02/23)
+## Day 46 - Spotify Time Machine (13/02/23)
 I lost a lot of time during authentication. It was easily the worst part of this project. Note to self, check the documentation and redirect urls!
+
+## Day 47 - Amazon Price Tracker (14/02/23)
+Happy valentines day! It is pretty much done except for the fact that the auth wont work when I try to send the mail. I believe It might be because Im doing this from my university's network. I'll try again later and see if it works.
 
 # Notes
 
