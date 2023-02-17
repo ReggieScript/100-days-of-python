@@ -52,6 +52,10 @@ I lost a lot of time during authentication. It was easily the worst part of this
 ## Day 47 - Amazon Price Tracker (14/02/23)
 Happy valentines day! It is pretty much done except for the fact that the auth wont work when I try to send the mail. I believe It might be because Im doing this from my university's network. I'll try again later and see if it works.
 
+## Day 48 - Cookie Selenium Bot (17/02/2023)
+
+Selenium is such a great tool. And code can be optimized by proper html understanding. Can't wait to see what else I do with this new knowledge.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
