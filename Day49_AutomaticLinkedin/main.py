@@ -39,8 +39,9 @@ time.sleep(5)
 
 # time.sleep(3)
 
-job_search = driver.find_element(By.ID, "jobs-search-box-keyword-id-ember23")
+job_search = driver.find_element(By.CLASS_NAME, "jobs-search-box__text-input.jobs-search-box__keyboard-text-input")
 job_search.send_keys("junior python developer")
 time.sleep(1)
-loc = driver.find_element(By.XPATH, '')
-job_search.send_keys(Keys.ENTER)
+loc = driver.find_elements(By.CLASS_NAME, "jobs-search-box__text-input.jobs-search-box__keyboard-text-input")
+loc[1].send_keys("Mexico")
+loc[1].send_keys(Keys.ENTER)

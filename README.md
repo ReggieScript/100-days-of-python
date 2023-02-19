@@ -56,6 +56,9 @@ Happy valentines day! It is pretty much done except for the fact that the auth w
 
 Selenium is such a great tool. And code can be optimized by proper html understanding. Can't wait to see what else I do with this new knowledge.
 
+## Day 49 - Linkedin Job Searcher (19/02/2023)
+For some reason I cannot go foward. Whenever you lookup for a job in the linkedin searchbar, you cannot press enter to proceed. This is because another searchbar opens when you write the job listing you are looking for, one for location. The problem is that through reading the html, the searchbar is technically the same? And for some reason I cannot access it u.u . I'll try in a later date this challenge, for now it seems that html is an issue.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
