@@ -59,6 +59,12 @@ Selenium is such a great tool. And code can be optimized by proper html understa
 ## Day 49 - Linkedin Job Searcher (19/02/2023)
 For some reason I cannot go foward. Whenever you lookup for a job in the linkedin searchbar, you cannot press enter to proceed. This is because another searchbar opens when you write the job listing you are looking for, one for location. The problem is that through reading the html, the searchbar is technically the same? And for some reason I cannot access it u.u . I'll try in a later date this challenge, for now it seems that html is an issue.
 
+## Day 50 - Tinder auto swiper bot (19/02/2023)
+I didnt feel comfortable doing this one so I skipped it lol.
+
+## Day 53 - Zillow data extraction (20/02/2023)
+Fun to do. I feel like I can obtain more data If I can handle to click the next page.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
