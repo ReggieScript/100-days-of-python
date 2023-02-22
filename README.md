@@ -65,6 +65,9 @@ I didnt feel comfortable doing this one so I skipped it lol.
 ## Day 53 - Zillow data extraction (20/02/2023)
 Fun to do. I feel like I can obtain more data If I can handle to click the next page.
 
+## Day 54 -- Flask introduction (21/02/2023)
+More than a project, today was about learning flask basics and function decorators.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
