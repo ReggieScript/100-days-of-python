@@ -68,6 +68,9 @@ Fun to do. I feel like I can obtain more data If I can handle to click the next 
 ## Day 54 -- Flask introduction (21/02/2023)
 More than a project, today was about learning flask basics and function decorators.
 
+## Day 55 -- Flask higher lower app(23/02/2023)
+Flask is promising!! I really see myself using this tool for web development.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
