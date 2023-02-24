@@ -12,6 +12,5 @@ def main_page():
     return render_template("index.html")
 
 
-
 if __name__ ==  "__main__": ## Checks if this file is the main file.    
     app.run(debug=True)
