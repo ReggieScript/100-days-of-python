@@ -71,6 +71,9 @@ More than a project, today was about learning flask basics and function decorato
 ## Day 55 -- Flask higher lower app(23/02/2023)
 Flask is promising!! I really see myself using this tool for web development.
 
+## Day 59 -- Upgraded Blog(28/02/2023)
+Phew I kinda forgot a little bit about bootstrap and js. Its fun to create an interactive and self updated environment with a self made api with json. I just forgot to add an automatic year footer lol.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
