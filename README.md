@@ -74,6 +74,9 @@ Flask is promising!! I really see myself using this tool for web development.
 ## Day 59 -- Upgraded Blog(28/02/2023)
 Phew I kinda forgot a little bit about bootstrap and js. Its fun to create an interactive and self updated environment with a self made api with json. I just forgot to add an automatic year footer lol.
 
+## Day 60 -- Upgraded Blog-mail functionality(1/03/2023)
+I just added some mail functionality with flask and smptlib. Note: smptlib is kinda special with ":" characters. Be careful with these in the future.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
