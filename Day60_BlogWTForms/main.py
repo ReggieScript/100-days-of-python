@@ -1,37 +1,55 @@
 from flask import Flask
 from flask import render_template, request
-from flask_wtf import FlaskForm, RecaptchaField
-from wtforms import TextAreaField
-import requests
-import smtplib
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, Length
 import os
-import email
 from dotenv import load_dotenv
+from flask_bootstrap import Bootstrap
 
 load_dotenv()
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+    Bootstrap(app)
+    return app
 
-send_email = os.getenv("MAIL_SEND") 
-recieve_email = os.getenv("MAIL_RECIEVE")
-password_email = os.getenv("PASSWORD")
+app = create_app()
 
-blogs_url = "https://api.npoint.io/54484abb664011e3248c"
-
-# form = FlaskForm()
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-class SignupForm(FlaskForm(meta={'csrf': False})):
-    username = TextAreaField('Username')
-    recaptcha = RecaptchaField()
+class SignupForm(FlaskForm):
+    username = StringField(label="Username", validators=[DataRequired(), Email(message="Invalid email address")])
+    password = PasswordField(label ="Password", validators=[DataRequired(), Length(min = 8)])
+    submit = SubmitField(label="Log In")
 
-@app.route("/login")
+# SignupForm(meta={'csrf': False})
+
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    form = SignupForm()
-    return render_template("login.html", form)
+    form = SignupForm(request.form)
+    print(request.method)
+    form.validate_on_submit()
+    if request.method == "POST" and form.validate_on_submit():
+        print(form.username.data)
+        if form.username.data == "admin@email.com" and form.password.data == "12345678":
+            return app.redirect("/success")
+        else:
+            return app.redirect("/denied")
+    return render_template("login.html", form = form)
+
+@app.route("/success")
+def success():
+    return render_template("success.html")
+
+@app.route("/denied")
+def denied():
+    return render_template("denied.html")
 
 if __name__ ==  "__main__": ## Checks if this file is the main file.    
     app.run(debug=True)
