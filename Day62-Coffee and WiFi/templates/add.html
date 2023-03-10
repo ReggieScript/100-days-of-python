@@ -1,0 +1,34 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Add A New Cafe{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Add a new cafe into the database</h1>
+
+      <div class = "container">
+        <h1>Add a Cafe</h1>
+        <form action="" method="POST">
+          {{ form.csrf_token }}
+          {% for field in form%}
+            {% if field.label == "Add Cafe"%}
+              {{form.submit}}
+            {% else %}
+              <p>
+                {{field.label}} <br> {{field}}
+              </p>
+            {% endif %}
+          {% endfor %}
+        </form>
+      </div>
+
+	  <p class="space-above"><a href="#">See all cafes</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
