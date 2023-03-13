@@ -1,6 +1,13 @@
 {% extends 'bootstrap/base.html' %}
 
-{% block title %}Add A New Cafe{% endblock %}
+{% block head%}
+  {% block styles %}
+  {{super()}}
+  <link rel="stylesheet"
+        href="{{url_for('.static', filename='styles.css')}}">
+  {% endblock %}
+  {% endblock %}
+
 
 {% block content %}
 <div class="container">
@@ -11,20 +18,16 @@
 
       <div class = "container">
         <h1>Add a Cafe</h1>
-        <form action="" method="POST">
+        <form action="/add" method="POST">
           {{ form.csrf_token }}
           {% for field in form%}
-            {% if field.label == "Add Cafe"%}
-              {{form.submit}}
-            {% else %}
               <p>
                 {{field.label}} <br> {{field}}
               </p>
-            {% endif %}
           {% endfor %}
         </form>
       </div>
-
+      {{form.submit}}
 	  <p class="space-above"><a href="#">See all cafes</a></p>
 
     </div>
