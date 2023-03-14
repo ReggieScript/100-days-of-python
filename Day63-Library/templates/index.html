@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+<h1>My Library</h1>
+    <ul>
+        {%if book|length == 0 %}
+            {% for book in books %}
+                <li>{{book}}</li>
+            {% endfor %}
+        {% else %}
+            <p>Library is empty</p> 
+        {% endif %}
+    </ul>
+    
+<a href="/add">Add New Book</a>
+</body>
+</html>
