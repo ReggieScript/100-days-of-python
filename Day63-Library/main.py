@@ -1,13 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_wtf import FlaskForm
-from wtforms import StringField
-from wtforms.validators import DataRequired, NumberRange
 from flask_sqlalchemy import SQLAlchemy, session, query
+from flask_bootstrap import Bootstrap
+
 
 app = Flask(__name__)
-
+Bootstrap(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new-books-collection.db'
 db = SQLAlchemy(app)
 
