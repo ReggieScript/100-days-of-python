@@ -77,9 +77,13 @@ Phew I kinda forgot a little bit about bootstrap and js. Its fun to create an in
 ## Day 60 -- Upgraded Blog-mail functionality(1/03/2023)
 I just added some mail functionality with flask and smptlib. Note: smptlib is kinda special with ":" characters. Be careful with these in the future.
 
-## Day 63 - Library with Sqlite and SQLalchemy (15/03/22)
+## Day 63 - Library with Sqlite and SQLalchemy (15/03/23)
 I'm finding that SQLalchemy is a little hard to understand. But nothin I can't learn from.
+
+## Day 63 - Top movies with SQLalchemy, Flask and APIs (24/06/23)
+Oh boy it's hard to come back to coding these exercises after being away focused on data science projects at school. I came back like " HUH? WHAT's FLASK? SQL? ". Hard proyect overall, I really liked it.
 
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
+* Day 64: its functional but ugly, gotta fix the frontend

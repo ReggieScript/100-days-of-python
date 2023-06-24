@@ -1,35 +1,39 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Table, Column, Integer, String, MetaData, URL
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField
-from wtforms.validators import DataRequired
+import credentials
 import requests
 
+# Define variables
+
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = credentials.SECRET_KEY
 Bootstrap(app)
-TMDB_API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzViYWMzYTZjZGQ0ODBjMmNmZTMwMWQwNWM1OWIzOCIsInN1YiI6IjY0OTVmOTkwYTE0YmVmMDBhZDJjMTBmNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pBlvs6p6XSo3iNcovE2J32xQAwLDVCfw_U0QMTuvsls"
+TMDB_API_KEY = credentials.TMDB_API_KEY
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///movies.db'
 db = SQLAlchemy(app)
 
+
+# Define the form
 class RateMovieForm(FlaskForm):
     rating = IntegerField(label = "Your rating out of 10 eg. 7.5")
     review = StringField(label = "Your review")
     submit = SubmitField(label="Done")
 
+# Define the SQL table
 
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(250), unique=True, nullable=False)
     year = db.Column(db.Integer, unique=False, nullable=False)
-    description = db.Column(db.String, unique=True, nullable=False)
-    rating = db.Column(db.Integer, unique=False, nullable=False)
-    ranking = db.Column(db.Integer, unique=True, nullable=False)
-    review = db.Column(db.String, unique=False, nullable=False)
+    description = db.Column(db.String, unique=False, nullable=False)
+    rating = db.Column(db.Integer, unique=False, nullable=True)
+    ranking = db.Column(db.Integer, unique=True, nullable=True)
+    review = db.Column(db.String, unique=False, nullable=True)
     img_url = db.Column(db.String, unique=False, nullable=False)
 
 
@@ -39,26 +43,18 @@ class Movie(db.Model):
 with app.app_context():
     db.create_all()
 
-# Code to add a movie
-def add_movie(movie_data):
-    new_movie = Movie(
-        title=movie_data.title,
-        year=movie_data.release_date.split("-")[0],
-        description=movie_data.overview,
-        rating=7.3,
-        ranking=10,
-        review="",
-        img_url=movie_data.poster_path
-    )
-    
-    with app.app_context():
-        db.session.add(new_movie)
-        db.session.commit()
+# Adding a movie
 
 
 @app.route("/")
 def home():
-    all_movies = Movie.query.all()
+    all_movies = Movie.query.order_by(Movie.rating).all()
+    rank = len(all_movies)
+    for movie in all_movies:
+        movie.ranking = rank
+        rank -=1
+        print(movie.ranking)
+
     return render_template("index.html", movies = all_movies)
 
 @app.route("/edit", methods = ["GET","POST"])
@@ -106,8 +102,32 @@ def add():
 def find_movie():
     movie_data = request.args.get("data")
     if movie_data:
-        add_movie(movie_data)
+        print(movie_data)
+        movie_data = eval(movie_data)
+        new_movie = Movie(
+        title=movie_data["title"],
+        year=movie_data["release_date"].split("-")[0],
+        description=movie_data["overview"],
+        img_url="https://www.themoviedb.org/t/p/original" + movie_data["poster_path"]
+        )
+    
+
+        db.session.add(new_movie)
+        db.session.commit()
+        return redirect(url_for("rate_movie", id = new_movie.id))
+
+@app.route("/edit", methods = ["GET", "POST"])
+def rate_movie():
+    form = RateMovieForm()
+    movie_id = request.args.get("id")
+    movie = Movie.query.get(movie_id)
+    if form.validate_on_submit:
+        movie.rating = float(form.rating.data)
+        movie.review = form.review.data
+        with app.app_context():
+            db.session.commit()
         return redirect(url_for("home"))
+    return render_template("edit.html", movie = movie, form = form)
 
 if __name__ == '__main__':
 
