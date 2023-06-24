@@ -10,6 +10,7 @@ import requests
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 Bootstrap(app)
+TMDB_API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzViYWMzYTZjZGQ0ODBjMmNmZTMwMWQwNWM1OWIzOCIsInN1YiI6IjY0OTVmOTkwYTE0YmVmMDBhZDJjMTBmNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pBlvs6p6XSo3iNcovE2J32xQAwLDVCfw_U0QMTuvsls"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///movies.db'
@@ -38,29 +39,29 @@ class Movie(db.Model):
 with app.app_context():
     db.create_all()
 
-
-
-# new_movie = Movie(
-#     title="Phone Booth",
-#     year=2002,
-#     description="Publicist Stuart Shepard finds himself trapped in a phone booth, pinned down by an extortionist's sniper rifle. Unable to leave or receive outside help, Stuart's negotiation with the caller leads to a jaw-dropping climax.",
-#     rating=7.3,
-#     ranking=10,
-#     review="My favourite character was the caller.",
-#     img_url="https://image.tmdb.org/t/p/w500/tjrX2oWRCM3Tvarz38zlZM7Uc10.jpg"
-# )
-
-# with app.app_context():
-#     db.session.add(new_movie)
-#     db.session.commit()
+# Code to add a movie
+def add_movie(movie_data):
+    new_movie = Movie(
+        title=movie_data.title,
+        year=movie_data.release_date.split("-")[0],
+        description=movie_data.overview,
+        rating=7.3,
+        ranking=10,
+        review="",
+        img_url=movie_data.poster_path
+    )
+    
+    with app.app_context():
+        db.session.add(new_movie)
+        db.session.commit()
 
 
 @app.route("/")
 def home():
-    all_movies = db.session.query(Movie).all()
+    all_movies = Movie.query.all()
     return render_template("index.html", movies = all_movies)
 
-@app.route("/edit", methods = ["GET", "POST"])
+@app.route("/edit", methods = ["GET","POST"])
 def edit():
     form = RateMovieForm(request.form)
     movieid = request.args.get('id')
@@ -81,5 +82,33 @@ def delete():
     db.session.commit()
     return app.redirect("/")
 
+class AddMovieForm(FlaskForm):
+    title = StringField(label = "Movie Title")
+    submit = SubmitField(label="Add Movie")
+
+
+@app.route("/add", methods = ["GET","POST"])
+def add():
+    form = AddMovieForm(request.form)
+    if form.validate_on_submit():
+        movie_title = form.title.data
+        tmdb_url = f"https://api.themoviedb.org/3/search/movie?query={movie_title}&include_adult=false&language=en-US&page=1"
+        tmdb_headers = {
+        "accept": "application/json",
+        "Authorization": f"Bearer {TMDB_API_KEY}" }
+        response = requests.get(tmdb_url, headers = tmdb_headers)
+        data = response.json()["results"]
+        return render_template("select.html", movies = data)
+
+    return render_template("add.html", form = form)
+
+@app.route("/find")
+def find_movie():
+    movie_data = request.args.get("data")
+    if movie_data:
+        add_movie(movie_data)
+        return redirect(url_for("home"))
+
 if __name__ == '__main__':
+
     app.run(debug=True)
