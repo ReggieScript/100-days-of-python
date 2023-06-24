@@ -80,7 +80,7 @@ I just added some mail functionality with flask and smptlib. Note: smptlib is ki
 ## Day 63 - Library with Sqlite and SQLalchemy (15/03/23)
 I'm finding that SQLalchemy is a little hard to understand. But nothin I can't learn from.
 
-## Day 63 - Top movies with SQLalchemy, Flask and APIs (24/06/23)
+## Day 64 - Top movies with SQLalchemy, Flask and APIs (24/06/23)
 Oh boy it's hard to come back to coding these exercises after being away focused on data science projects at school. I came back like " HUH? WHAT's FLASK? SQL? ". Hard proyect overall, I really liked it.
 
 # Notes
