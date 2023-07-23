@@ -83,6 +83,10 @@ I'm finding that SQLalchemy is a little hard to understand. But nothin I can't l
 ## Day 64 - Top movies with SQLalchemy, Flask and APIs (24/06/23)
 Oh boy it's hard to come back to coding these exercises after being away focused on data science projects at school. I came back like " HUH? WHAT's FLASK? SQL? ". Hard proyect overall, I really liked it.
 
+### Temporarily skipped days 65 through 70 of the challenge (hee hee)
+## Day 71 - DATA SCIENCE - College Majors Vs Salaries (23/07/23)
+Small size of data, but it's always good to remember pandas' basics.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
