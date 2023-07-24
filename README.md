@@ -87,6 +87,9 @@ Oh boy it's hard to come back to coding these exercises after being away focused
 ## Day 71 - DATA SCIENCE - College Majors Vs Salaries (23/07/23)
 Small size of data, but it's always good to remember pandas' basics.
 
+## Day 72 - DATA SCIENCE - Programming languages popularity in StackOverflow(24/07/23)
+Finally learned how to use pivot tables after many years of suffering, rolling is also a very useful tool for identifying trends!!! It's always good to remember how to use matplotlib.
+
 # Notes
 
 * Bugs in the trivia game make it so that you can click the buttons and increase your score. Have to fix.
